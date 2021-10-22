@@ -2,7 +2,7 @@ import styled from "styled-components";
 import CardImg from "./card-img";
 import CardInfo from "./card-info";
 import CardPrice from "./card-price";
-import breakpoint from "../../../breakpoints";
+import breakpoint from "../../../constants/breakpoints";
 import { TourNormalized } from "../../../types";
 
 type ListCardProps = {

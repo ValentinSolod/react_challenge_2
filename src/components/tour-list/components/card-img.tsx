@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { MapButton, HeartIcon } from "../../common";
-import breakpoint from "../../../breakpoints";
+import breakpoint from "../../../constants/breakpoints";
 
 type CardImgProps = {
   img: string;

@@ -5,7 +5,7 @@ import SortDropdown from "../sort-dropdown";
 import ListCard from "./components/list-card";
 import { HttpRequestTourService } from "../../services/http-client";
 import { TourNormalized } from "../../types";
-import breakpoint from "../../breakpoints";
+import breakpoint from "../../constants/breakpoints";
 
 const SelectContainer = styled.div`
   margin: 20px auto;

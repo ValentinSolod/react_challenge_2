@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Button, FlexTick } from "../../common";
-import breakpoint from "../../../breakpoints";
+import breakpoint from "../../../constants/breakpoints";
 
 type CardPriceProps = {
   price: number;

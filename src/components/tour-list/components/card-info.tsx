@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { RatingStars, MainDesc } from "../../common";
-import breakpoint from "../../../breakpoints";
+import breakpoint from "../../../constants/breakpoints";
 import { TourNormalized } from "../../../types";
 
 type CardInfoProps = {

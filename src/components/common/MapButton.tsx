@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import MapSvg from "../../assets/images/map.svg";
-import breakpoint from "../../breakpoints";
+import breakpoint from "../../constants/breakpoints";
 
 const MapButtonContainer = styled.div`
   position: absolute;
