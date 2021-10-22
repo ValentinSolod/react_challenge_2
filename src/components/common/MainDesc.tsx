@@ -1,9 +1,9 @@
 import { useState } from "react";
 import styled from "styled-components";
-import { Tour } from "../../types";
+import { TourNormalized } from "../../types";
 
 type MainDescProps = {
-  tour: Tour;
+  tour: TourNormalized;
 };
 
 const MainDescriptionContainer = styled.div`

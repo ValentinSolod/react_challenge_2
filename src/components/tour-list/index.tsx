@@ -1,10 +1,10 @@
 import { useEffect, useState, useCallback } from "react";
 import styled from "styled-components";
+import { v4 as uuidv4 } from "uuid";
 import SortDropdown from "../sort-dropdown";
 import ListCard from "./components/list-card";
 import { HttpRequestTourService } from "../../services/http-client";
-import { filteredArr } from "../../helpers";
-import { Tour } from "../../types";
+import { TourNormalized } from "../../types";
 import breakpoint from "../../breakpoints";
 
 const SelectContainer = styled.div`
@@ -33,11 +33,12 @@ const TourListCardWrapper = styled.div`
 export default function TourList(): JSX.Element {
   const service = HttpRequestTourService.Instance;
   const [activeSort, setActiveSort] = useState("");
-  const [tours, setTours] = useState<Array<Tour>>([]);
+  const [tours, setTours] = useState<Array<TourNormalized>>([]);
 
   useEffect(() => {
     service.getTours().then((list) => {
-      setTours(filteredArr(list));
+      const uuidList = list.map((item) => ({ key: uuidv4(), ...item }));
+      setTours(uuidList);
     });
   }, [service]);
 
@@ -47,7 +48,7 @@ export default function TourList(): JSX.Element {
   };
 
   const sortTours = useCallback(
-    (toursToSort: Array<Tour>, sortType: string) => {
+    (toursToSort: Array<TourNormalized>, sortType: string) => {
       switch (sortType) {
         case "cheap": {
           return toursToSort.sort((a, b) => b.price - a.price);
@@ -79,7 +80,7 @@ export default function TourList(): JSX.Element {
       </SelectContainer>
       <TourListCardWrapper>
         {tours.map((tour) => (
-          <ListCard key={tour.id} tour={tour} />
+          <ListCard key={tour.key} tour={tour} />
         ))}
       </TourListCardWrapper>
     </>

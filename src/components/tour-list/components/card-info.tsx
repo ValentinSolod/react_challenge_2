@@ -1,10 +1,10 @@
 import styled from "styled-components";
 import { RatingStars, MainDesc } from "../../common";
 import breakpoint from "../../../breakpoints";
-import { Tour } from "../../../types";
+import { TourNormalized } from "../../../types";
 
 type CardInfoProps = {
-  tour: Tour;
+  tour: TourNormalized;
 };
 
 const CardInfoContainer = styled.div`

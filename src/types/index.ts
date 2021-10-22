@@ -1,4 +1,4 @@
-export type Tour = {
+export interface Tour {
   id: number;
   age_max: number;
   age_min: number;
@@ -17,4 +17,8 @@ export type Tour = {
     cnt: number;
     sample: string;
   };
-};
+}
+
+export interface TourNormalized extends Tour {
+  key: string;
+}

@@ -3,10 +3,10 @@ import CardImg from "./card-img";
 import CardInfo from "./card-info";
 import CardPrice from "./card-price";
 import breakpoint from "../../../breakpoints";
-import { Tour } from "../../../types";
+import { TourNormalized } from "../../../types";
 
 type ListCardProps = {
-  tour: Tour;
+  tour: TourNormalized;
 };
 
 const Card = styled.div`
