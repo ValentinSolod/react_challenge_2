@@ -33,7 +33,7 @@ const TourImg = styled.img`
   height: 170px;
 
   @media only screen and ${breakpoint.device.lg} {
-    spect-ratio: 645/430;
+    aspect-ratio: 645/430;
     width: 100%;
     height: auto;
   }
