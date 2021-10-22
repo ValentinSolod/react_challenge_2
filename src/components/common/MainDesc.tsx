@@ -1,5 +1,5 @@
-import { useState } from "react";
 import styled from "styled-components";
+import MoreDesc from "./MoreDesc";
 import { TourNormalized } from "../../types";
 
 type MainDescProps = {
@@ -33,21 +33,7 @@ const DescData = styled.div`
   font-size: 12px;
 `;
 
-const ShowMore = styled.span`
-  padding: 0 10px;
-  color: #409cd1;
-  cursor: pointer;
-`;
-
-const splitParts = (arr) => ({ first: arr.slice(0, 3), last: arr.slice(3) });
-
 export default function MainDesc({ tour }: MainDescProps): JSX.Element {
-  const [showState, setShowState] = useState({
-    destination: false,
-    region: false,
-    travelStyle: false,
-  });
-
   const {
     destinations,
     age_max: ageMax,
@@ -57,25 +43,11 @@ export default function MainDesc({ tour }: MainDescProps): JSX.Element {
     operated_in: operatedIn,
   } = tour;
 
-  const splitedDestinations = splitParts(destinations);
-  const splitedRegions = splitParts(regions);
-  const splitedStyles = splitParts(travelStyles);
-
   return (
     <MainDescriptionContainer>
       <DescriptionWrapper>
         <DescName>Destination</DescName>
-        <DescData>
-          {splitedDestinations.first.join(", ")}
-          {!showState.destination && splitedDestinations.last.length > 0 && (
-            <ShowMore
-              onClick={() => setShowState({ ...showState, destination: true })}
-            >
-              +{splitedDestinations.last?.length || ""} more
-            </ShowMore>
-          )}
-          {showState.destination && `, ${splitedDestinations.last.join(", ")}`}
-        </DescData>
+        <MoreDesc description={destinations} />
       </DescriptionWrapper>
       <DescriptionWrapper>
         <DescName>Age Range</DescName>
@@ -85,31 +57,11 @@ export default function MainDesc({ tour }: MainDescProps): JSX.Element {
       </DescriptionWrapper>
       <DescriptionWrapper>
         <DescName>Country Region</DescName>
-        <DescData>
-          {splitedRegions.first.join(", ")}
-          {!showState.region && splitedRegions.last.length > 0 && (
-            <ShowMore
-              onClick={() => setShowState({ ...showState, region: true })}
-            >
-              +{splitedRegions.last?.length || ""} more
-            </ShowMore>
-          )}
-          {showState.region && `, ${splitedRegions.last.join(", ")}`}
-        </DescData>
+        <MoreDesc description={regions} />
       </DescriptionWrapper>
       <DescriptionWrapper>
         <DescName>Travel Style</DescName>
-        <DescData>
-          {splitedStyles.first.join(", ")}
-          {!showState.travelStyle && splitedStyles.last.length > 0 && (
-            <ShowMore
-              onClick={() => setShowState({ ...showState, travelStyle: true })}
-            >
-              +{splitedStyles.last.length || ""} more
-            </ShowMore>
-          )}
-          {showState.travelStyle && `, ${splitedStyles.last.join(", ")}`}
-        </DescData>
+        <MoreDesc description={travelStyles} />
       </DescriptionWrapper>
       <DescriptionWrapper>
         <DescName>Operated in</DescName>

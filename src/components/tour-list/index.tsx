@@ -32,7 +32,7 @@ const TourListCardWrapper = styled.div`
 
 export default function TourList(): JSX.Element {
   const service = HttpRequestTourService.Instance;
-  const [activeSort, setActiveSort] = useState("");
+  const [activeSort, setActiveSort] = useState<string>("");
   const [tours, setTours] = useState<Array<TourNormalized>>([]);
 
   useEffect(() => {
