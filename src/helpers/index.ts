@@ -1,4 +1,6 @@
-export const filteredArr = (arr: any[]): Array<any> =>
+export const filteredArr = (
+  arr: Array<{ id: string }>
+): Array<{ id: string }> =>
   arr.reduce((acc, current) => {
     const x = acc.find((item) => item.id === current.id);
     if (!x) {
